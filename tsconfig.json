@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2021" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "module": "CommonJS" /* Specify what module code is generated. */,
+    "rootDir": "src",
+    "outDir": "./dist" /* Specify the root folder within your source files. */,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strictNullChecks": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@test/*": ["test/*"]
+    }
+  }
+}

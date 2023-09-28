@@ -1,7 +1,7 @@
 import { Dollar } from '@/dollar'
 import { Euro } from '@/euro'
 
-describe('Dollar', () => {
+describe('Money', () => {
   it('should return 10 when five dollars are multiplied by two and 15 when multiplied by three', () => {
     const five: Dollar = new Dollar(5)
     expect(five.times(2).equals(new Dollar(10))).toBeTruthy()

@@ -5,6 +5,6 @@ import { Money } from './money'
 export class Bank {
   // eslint-disable-next-line no-unused-vars
   reduce (source: Expression, to: Currency): Money {
-    return Money.dollar(10)
+    return source.reduce(to)
   }
 }

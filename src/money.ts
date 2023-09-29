@@ -1,12 +1,13 @@
 import { Currency } from '@/currency'
 import { Expression } from './expression'
+import { Sum } from './sum'
 
 export class Money implements Expression {
-  private readonly amount: number
+  private readonly _amount: number
   private readonly _currency: Currency
 
   constructor (amount: number, currency: Currency) {
-    this.amount = amount
+    this._amount = amount
     this._currency = currency
   }
 
@@ -23,15 +24,24 @@ export class Money implements Expression {
       return false
     }
 
-    return this.amount === other.amount
+    return this._amount === other._amount
   }
 
   times (multiplier: number): Money {
-    return new Money(this.amount * multiplier, this._currency)
+    return new Money(this._amount * multiplier, this._currency)
   }
 
   plus (addend: Money): Expression {
-    return new Money(this.amount + addend.amount, this._currency)
+    return new Sum(this, addend)
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  reduce (currency: Currency): Money {
+    return this
+  }
+
+  amount (): number {
+    return this._amount
   }
 
   currency (): string {

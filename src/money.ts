@@ -1,8 +1,8 @@
 import { Currency } from '@/currency'
 
 export class Money {
-  protected amount: number
-  protected _currency: Currency
+  private readonly amount: number
+  private readonly _currency: Currency
 
   constructor (amount: number, currency: Currency) {
     this.amount = amount

@@ -1,18 +1,20 @@
+import { Currency } from '@/currency'
+
 export class Money {
   protected amount: number
-  protected _currency: string
+  protected _currency: Currency
 
-  constructor (amount: number, currency: string) {
+  constructor (amount: number, currency: Currency) {
     this.amount = amount
     this._currency = currency
   }
 
-  static dollar (amount: number): Dollar {
-    return new Dollar(amount, 'USD')
+  static dollar (amount: number): Money {
+    return new Money(amount, Currency.USD)
   }
 
-  static euro (amount: number): Euro {
-    return new Euro(amount, 'EUR')
+  static euro (amount: number): Money {
+    return new Money(amount, Currency.EUR)
   }
 
   equals (other: Money): boolean {
@@ -31,6 +33,3 @@ export class Money {
     return this._currency
   }
 }
-
-class Dollar extends Money {}
-class Euro extends Money {}
